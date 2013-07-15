@@ -15,7 +15,7 @@
 	"browser_action": {
 		"default_icon": "icon.png",
 		"popup": "popup.html",
-		"name": "See, whats worth reading."
+		"name": "See how many articles in fever are unread."
 	},
 	"permissions": [
 		"tabs",
