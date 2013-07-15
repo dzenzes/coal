@@ -30,7 +30,6 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 function tab_updated(tabId){
   chrome.tabs.get(tabId, function(tab){
-    chrome.browserAction.setBadgeText({ text : 0 + ""});
     if(typeof localStorage["page"] != 'undefined'){
       if(typeof localStorage["api_key"] != 'undefined'){
         page = localStorage["page"];
