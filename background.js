@@ -29,26 +29,23 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 function tab_updated(tabId){
-
   chrome.tabs.get(tabId, function(tab){
     chrome.browserAction.setBadgeText({ text : 0 + ""});
     if(typeof localStorage["page"] != 'undefined'){
       if(typeof localStorage["api_key"] != 'undefined'){
         page = localStorage["page"];
         api = localStorage["api_key"];
-        var reqURL = page + "/?api&unread_item_ids";
+        var reqURL = page + "/?xhr";
         $.ajax({
           type: 'POST',
           url: reqURL,
-          dataType: 'json',
           data: {
-            api_key:api
+            api_key: api
           },
           success: function(result){
             console.log(result);
-            unread = result.unread_item_ids;
-            chrome.browserAction.setBadgeText({ text : unread.length+""});
-            
+            var unread = result.match(/Fever.Reader.totalUnread\t*= ([0-9]*)/)[1];
+            chrome.browserAction.setBadgeText({ text : unread + ""});
           },
           error: function(){
             chrome.browserAction.setBadgeText({ text : 0 + ""});
