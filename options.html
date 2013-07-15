@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<meta charset=utf-8 />
+<title>Options for coal</title>
+
+<style>
+body {
+  font-size: 12px;
+  font-family: Helvetica, sans-serif;
+}
+
+p {
+  font-size: 1em; /* 12px */
+  line-height: 1.5em; /* 18px */
+  margin: 0 0 1.5em 0;
+}
+/* 24px - The quick brown fox jumps over the lazy dog */
+.class-for-24px {
+  font-size: 2em; /* 24px */
+  line-height: 1.5em; /* 36px */
+  margin-top: 0.75em;
+  margin-bottom: 0em;
+}
+/* 22px - The quick brown fox jumps over the lazy dog */
+.class-for-22px {
+  font-size: 1.8333em; /* 22px */
+  line-height: 1.6364em; /* 36px */
+  margin-top: 0.8182em;
+  margin-bottom: 0em;
+}
+/* 20px - The quick brown fox jumps over the lazy dog */
+.class-for-20px {
+  font-size: 1.6667em; /* 20px */
+  line-height: 1.8em; /* 36px */
+  margin-top: 0.9em;
+  margin-bottom: 0em;
+}
+/* 18px - The quick brown fox jumps over the lazy dog */
+.class-for-18px {
+  font-size: 1.5em; /* 18px */
+  line-height: 1em; /* 18px */
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+/* 16px - The quick brown fox jumps over the lazy dog */
+.class-for-16px {
+  font-size: 1.3333em; /* 16px */
+  line-height: 1.125em; /* 18px */
+  margin-top: 1.125em;
+  margin-bottom: 0em;
+}
+/* 14px - The quick brown fox jumps over the lazy dog */
+.class-for-14px {
+  font-size: 1.1667em; /* 14px */
+  line-height: 1.2857em; /* 18px */
+  margin-top: 1.2857em;
+  margin-bottom: 0em;
+}
+
+#header{
+	color:#333;
+}
+
+#settings{
+	border:1px solid #999;
+	padding:15px;
+	border-radius: 10px;
+	margin:15px 0;
+}
+
+label{
+	display:block;
+	border-bottom:1px solid #999;
+	margin-bottom:2px;
+	padding:2px 3px;
+	font-weight: bold;
+}
+
+input{
+	padding:2px 3px;
+	border:1px solid #999;
+	border-radius: 3px;
+	width:250px;
+}
+
+button{
+	display: inline-block;
+	padding: 0 24px;
+	height: 30px;
+	width: auto;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	background: #333;
+	border: 0;
+	cursor: pointer;
+}
+
+</style>
+
+<body>
+	<header id="header">
+		<h1>coal</h1>
+	</header>
+
+	<div id="content">
+		<section id="settings">
+			<h2>Coal needs some informations to work</h2>
+			<p>
+				<label for="page">Address of fever installation</label>
+				<input id="page" name="page" value="" />
+			</p>
+			<p>
+				<label for="email">email</label>
+				<input id="email" name="email" value="" />
+			</p>
+			<p>
+				<label for="password">password</label>
+				<input id="password" name="password" type="password" value="" />
+			</p>
+			<p>
+				coal only creates and saves an access token and doesn't save your login informations.
+			</p>
+			<button id="save">Save</button>
+		</section>
+	</div>
+</body>
+
+<script type="text/javascript" src="options.js"></script>
