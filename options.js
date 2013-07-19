@@ -5,15 +5,16 @@ function loadOptions() {
 	var page="";
 	if(typeof localStorage["api_key"] == 'undefined'){
 		alert('Oh, the API key is missing. Please enter page, email and password below to create one.')
-	}else{
-	//	var api = document.getElementById("api_key")
-	//	api.value = localStorage["api_key"]
 	}
 	if(typeof localStorage["page"] != 'undefined'){
 		var page = document.getElementById("page")
 		page.value = localStorage["page"]
 	}
-
+	if(localStorage["buttonAction"] == 'addFeed') {
+		document.getElementById("addFeed").checked = true;
+	} else {
+		document.getElementById("openFever").checked = true;
+	}
 }
 
 function saveOptions(e) {
@@ -24,6 +25,9 @@ function saveOptions(e) {
 	localStorage["api_key"] = api_key;
 
 	var page = document.getElementById("page").value;
+	if(page[page.length-1] == '/') {
+		page = page.substring(0, page.length - 1);
+	}
 	localStorage["page"] = page
 
 	var api = document.getElementById("api_key")
@@ -43,10 +47,11 @@ function clickHandler(e) {
 }
 // pageload:
 document.addEventListener("DOMContentLoaded", loadOptions, false);
-// save-button:
+// save-button + toolbar-option:
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('button').addEventListener('click', saveOptions);
-
+  document.querySelector('#save').addEventListener('click', saveOptions);
+  document.querySelector('#addFeed').addEventListener('click', function(){localStorage["buttonAction"] = "addFeed"});
+  document.querySelector('#openFever').addEventListener('click', function(){localStorage["buttonAction"] = "openFever"});
 });
 
 

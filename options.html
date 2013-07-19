@@ -19,14 +19,14 @@ p {
 	color:#333;
 }
 
-#settings{
+section{
 	border:1px solid #999;
 	padding:15px;
 	border-radius: 10px;
 	margin:15px 0;
 }
 
-label{
+label.underlined{
 	display:block;
 	border-bottom:1px solid #999;
 	margin-bottom:2px;
@@ -34,11 +34,15 @@ label{
 	font-weight: bold;
 }
 
-input{
+input[type="text"],input[type="password"]{
 	padding:2px 3px;
 	border:1px solid #999;
 	border-radius: 3px;
 	width:250px;
+}
+
+input[type="radio"]{
+	margin-right: 1em;
 }
 
 button{
@@ -64,24 +68,32 @@ button{
 	</header>
 
 	<div id="content">
-		<section id="settings">
+		<section>
 			<h2>Coal needs some informations to work</h2>
 			<p>
-				<label for="page">Address of fever installation</label>
-				<input id="page" name="page" value="" />
+				<label class="underlined" for="page">Address of fever installation</label>
+				<input type="text" id="page" name="page" value="" />
 			</p>
 			<p>
-				<label for="email">email</label>
-				<input id="email" name="email" value="" />
+				<label class="underlined" for="email">email</label>
+				<input type="text" id="email" name="email" value="" />
 			</p>
 			<p>
-				<label for="password">password</label>
+				<label class="underlined" for="password">password</label>
 				<input id="password" name="password" type="password" value="" />
 			</p>
 			<p>
 				coal only creates and saves an access token and doesn't save your login informations.
 			</p>
 			<button id="save">Save</button>
+		</section>
+		<section>
+			<h2>Additional settings</h2>
+			<p>
+				<label class="underlined">The Toolbar button …</label>
+				<input id="openFever" type="radio" name="buttonAction" value=""><label for="openFever">opens Fever</label><br />
+				<input id="addFeed" type="radio" name="buttonAction" value=""><label for="addFeed">adds a new feed</label>
+			</p>
 		</section>
 	</div>
 </body>
