@@ -24,8 +24,11 @@ function onRequest(request, sender, callback) {
 chrome.extension.onRequest.addListener(onRequest);
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-  chrome.tabs.create({'url': localStorage["page"]}, function(tab) {
-  });
+  if (localStorage["buttonAction"] == 'addFeed') {
+    chrome.tabs.executeScript(tab.id, {code: "s=document.createElement('script');s.type='text/javascript';s.src='"+localStorage['page']+"/?feedlet&js&'+(new Date()).getTime();document.getElementsByTagName('head')[0].appendChild(s);"});
+  } else {
+    chrome.tabs.create({'url': localStorage["page"]}, function(tab) {});
+  }
 });
 
 function tab_updated(tabId){
@@ -44,10 +47,9 @@ function tab_updated(tabId){
           success: function(result){
             console.log(result);
             var unread = result.match(/Fever.Reader.totalUnread\t*= ([0-9]*)/)[1];
-            chrome.browserAction.setBadgeText({ text : unread + ""});
-          },
-          error: function(){
-            chrome.browserAction.setBadgeText({ text : 0 + ""});
+            if (unread != 0) {
+              chrome.browserAction.setBadgeText({ text : unread + ""});
+            }
           }
         });
       }
